@@ -15,16 +15,22 @@ import java.util.List;
 public class EstatisticasService {
     public final TransacaoService transacaoService;
 
-    public EstatisticasResponseDTO calcularEstatisticasDeTransacoes(Integer intervaloDeBusca){
+    public EstatisticasResponseDTO calcularEstatisticasDeTransacoes(Integer intervaloDeBusca) {
         log.info("Iniciada busca de estatísticas  de transações pelo periodo de tempo " + intervaloDeBusca);
-        List<TransacaoRequestDTO> transacoes =  transacaoService.buscarTransacoes(intervaloDeBusca);
 
-        if (transacoes.isEmpty()){
-            return new EstatisticasResponseDTO(0L,0.0,0.0,0.0,0.0);
+        long start = System.currentTimeMillis();
+        List<TransacaoRequestDTO> transacoes = transacaoService.buscarTransacoes(intervaloDeBusca);
+
+        if (transacoes.isEmpty()) {
+            return new EstatisticasResponseDTO(0L, 0.0, 0.0, 0.0, 0.0);
         }
 
         DoubleSummaryStatistics estatisticas = transacoes.stream()
                 .mapToDouble(TransacaoRequestDTO::valor).summaryStatistics();
+
+        long finish = System.currentTimeMillis();
+        long tempoRequisicao = finish - start;
+        System.out.println("Tempo de requisicão: " + start + finish + " milissegundos");
         log.info("Estatisticas retornadas com sucesso");
         return new EstatisticasResponseDTO(estatisticas.getCount(),
                 estatisticas.getSum(),
