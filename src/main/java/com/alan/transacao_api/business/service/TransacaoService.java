@@ -35,4 +35,10 @@ public class TransacaoService {
         log.info("transações apagadas.");
         listaTransacoes.clear();
     }
+
+    public List<TransacaoRequestDTO> buscarTransacoes(Integer intervaloBusca){
+        OffsetDateTime dataHoraIntervalo =  OffsetDateTime.now().minusSeconds(intervaloBusca);
+        return listaTransacoes.stream().filter(
+                transacao -> transacao.dataHora().isAfter(dataHoraIntervalo)).toList();
+    }
 }
