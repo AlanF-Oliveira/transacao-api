@@ -30,4 +30,9 @@ public class TransacaoService {
         }
         listaTransacoes.add(dto);
     }
+
+    public void limparTransacoes(){
+        log.info("transações apagadas.");
+        listaTransacoes.clear();
+    }
 }
