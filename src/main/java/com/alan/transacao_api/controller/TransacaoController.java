@@ -1,7 +1,7 @@
 package com.alan.transacao_api.controller;
 
-import com.alan.transacao_api.business.service.TransacaoService;
-import com.alan.transacao_api.controller.dto.TransacaoRequestDTO;
+import com.alan.transacao_api.service.TransacaoService;
+import com.alan.transacao_api.dto.TransacaoRequestDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;

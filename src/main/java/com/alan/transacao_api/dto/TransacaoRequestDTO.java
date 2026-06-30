@@ -1,4 +1,4 @@
-package com.alan.transacao_api.controller.dto;
+package com.alan.transacao_api.dto;
 
 import java.time.OffsetDateTime;
 

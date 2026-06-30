@@ -1,7 +1,7 @@
 package com.alan.transacao_api.controller;
 
-import com.alan.transacao_api.business.service.EstatisticasService;
-import com.alan.transacao_api.controller.dto.EstatisticasResponseDTO;
+import com.alan.transacao_api.service.EstatisticasService;
+import com.alan.transacao_api.dto.EstatisticasResponseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;

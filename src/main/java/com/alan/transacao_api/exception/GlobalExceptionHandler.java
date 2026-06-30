@@ -1,4 +1,4 @@
-package com.alan.transacao_api.infrastructure.exception;
+package com.alan.transacao_api.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
